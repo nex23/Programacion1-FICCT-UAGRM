@@ -6,28 +6,28 @@
  
 ---
  
-## 📂 Contenido de esta carpeta
- 
-Aquí encontrarás todos los proyectos Rust desarrollados en clase con el **Grupos SC y SH**, organizados por bloque temático.
+## 📂 Estructura del proyecto
  
 ```
-📁 SC/
-├── 01_numeros/
-├── 02_cadenas/
-├── 03_vectores/
-└── 04_matrices/
+📁 programacion-1/
+├── 📁 Hola_Mundo/     ← Código base para practicar conceptos básicos de Rust
+├── 📁 Numeros/        ← Proyectos del bloque: Tipos numéricos y operaciones
+├── 📁 Cadenas/        ← Proyectos del bloque: Manejo de String y &str
+├── 📁 Vectores/       ← Proyectos del bloque: Vec<T>, iteradores y POO
+└── 📁 Matrices/       ← Proyectos del bloque: Vec<Vec<T>> y estructuras compuestas
 ```
  
 ---
  
 ## 🎓 Material de estudio
  
-Accede a las presentaciones interactivas preparadas por el docente:
+Accede a los recursos preparados por el docente:
  
 | Recurso | Descripción | Enlace |
 |---|---|---|
 | 🦀 **Introducción a Rust** | Historia, características, ownership, por qué aprender Rust | [hugonex.com/rust](https://hugonex.com/rust) |
 | 🧩 **POO en Rust** | `struct`, `impl`, `pub`, `trait` y composición con ejemplos | [hugonex.com/poorust](https://hugonex.com/poorust) |
+| 📺 **Canal de YouTube** | Videos, tutoriales y clases del docente | [youtube.com/@hnexcode](https://www.youtube.com/@hnexcode) |
  
 ---
  
@@ -103,7 +103,7 @@ if nota >= 51 {
     println!("Reprobado");
 }
  
-// loop con for
+// for
 for i in 0..5 {
     println!("Iteración {}", i);
 }
@@ -132,7 +132,7 @@ for nota in &notas {
 ## 🧩 POO en Rust — Resumen rápido
  
 ### `struct` — La unidad de datos
-Define los atributos de un objeto (equivale a la clase en Java):
+Define los atributos de un objeto (equivale a la clase en Java/C#):
 ```rust
 struct Estudiante {
     nombre: String,
@@ -198,7 +198,7 @@ struct Estudiante {
  
 ```bash
 # Entrar a la carpeta del proyecto
-cd 01_numeros/nombre_proyecto
+cd numeros/nombre_proyecto
  
 # Compilar y ejecutar
 cargo run
@@ -209,12 +209,13 @@ cargo build
  
 ---
  
-> 📖 Para profundizar en los temas, revisá las presentaciones del docente:  
-> 🔗 [hugonex.com/rust](https://hugonex.com/rust) · [hugonex.com/poorust](https://hugonex.com/poorust)
+> 📖 Para profundizar en los temas, revisá las presentaciones y videos del docente:  
+> 🔗 [hugonex.com/rust](https://hugonex.com/rust) · [hugonex.com/poorust](https://hugonex.com/poorust) · [YouTube @hnexcode](https://www.youtube.com/@hnexcode)
  
 ---
  
 ![Rust](https://img.shields.io/badge/Lenguaje-Rust-orange?style=flat-square&logo=rust)
-![Grupo](https://img.shields.io/badge/Grupos-SC-SH-blue?style=flat-square)
+![Grupo](https://img.shields.io/badge/Grupo-SC-blue?style=flat-square)
+![Semestre](https://img.shields.io/badge/Semestre-I--2026-yellow?style=flat-square)
 ![FICCT](https://img.shields.io/badge/Facultad-FICCT-green?style=flat-square)
  
