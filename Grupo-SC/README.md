@@ -2,7 +2,7 @@
  
 > **FICCT · UAGRM** · Santa Cruz de la Sierra, Bolivia  
 > **Docente:** Msc. Ing. Víctor Hugo Acosta Ortega  
-> **Semestre:** 2026
+> **Semestre:** I-2026
  
 ---
  
