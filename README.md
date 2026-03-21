@@ -96,6 +96,16 @@ cargo build
 | Examen Final | TODO |
  
 ---
+
+Accede a los recursos preparados por el docente:
+ 
+| Recurso | Descripción | Enlace |
+|---|---|---|
+| 🦀 **Introducción a Rust** | Historia, características, ownership, por qué aprender Rust | [hugonex.com/rust](https://hugonex.com/rust) |
+| 🧩 **POO en Rust** | `struct`, `impl`, `pub`, `trait` y composición con ejemplos | [hugonex.com/poorust](https://hugonex.com/poorust) |
+| 📺 **Canal de YouTube** | Videos, tutoriales y clases del docente | [youtube.com/@hnexcode](https://www.youtube.com/@hnexcode) |
+ 
+---
  
 ## 📌 Convenciones del repositorio
  
