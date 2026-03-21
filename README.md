@@ -9,7 +9,7 @@
 ## 📋 Descripción
  
 Repositorio oficial de la materia **Programación I** correspondiente al ciclo académico **2026**.  
-Aquí se publican los proyectos, ejemplos y ejercicios desarrollados durante las clases, organizados por grupo.
+Aquí se publican los proyectos, ejemplos y ejercicios desarrollados durante las clases.
  
 El objetivo de la materia es enseñar **lógica de programación y POO** utilizando el lenguaje **Rust** como vehículo pedagógico, desarrollando en el estudiante pensamiento computacional sólido y buenas prácticas de diseño de software.
  
@@ -22,20 +22,6 @@ El objetivo de la materia es enseñar **lógica de programación y POO** utiliza
 | Grupo A | **SC** | Lun,Mie, Vie / 16:45 - 18:15 |
 | Grupo B | **SH** | Mar, Jue / 16:00 - 18:15 |
  
-```
-📁 programacion-1/
-├── 📁 SC/          ← Proyectos del Grupo SC
-│   ├── 01_numeros/
-│   ├── 02_cadenas/
-│   ├── 03_vectores/
-│   └── 04_matrices/
-├── 📁 SH/          ← Proyectos del Grupo SH
-│   ├── 01_numeros/
-│   ├── 02_cadenas/
-│   ├── 03_vectores/
-│   └── 04_matrices/
-└── README.md
-```
  
 ---
  
