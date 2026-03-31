@@ -140,6 +140,9 @@ impl Numero {
     //2.- Insertar un digito en una posicion, ej:
     // 361, quiero insertar el digito 2 en la 2da posiciom:
     // 3261
+    //
+    //3261 Ordenar los digitos del numero
+    //1236
 
 
 
