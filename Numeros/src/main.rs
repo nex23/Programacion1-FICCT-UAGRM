@@ -39,8 +39,8 @@ impl Numero {
         true
     }
 
-    fn cantidad_digitos(&self) -> u16 {
-        let mut count: u16 = 0;
+    fn cantidad_digitos(&self) -> u64 {
+        let mut count: u64 = 0;
         let mut num: u64 = self.valor;
 
         while num > 0 {
@@ -72,7 +72,7 @@ impl Numero {
         self.valor == self.invertir()
     }
 
-    fn elevado(&self, base: u64, exp: u16) -> u64 {
+    fn elevado(&self, base: u64, exp: u64) -> u64 {
         let mut resultado: u64 = 1;
         for _ in 0..exp {
             resultado = resultado * base;
@@ -83,7 +83,7 @@ impl Numero {
     fn es_armstrong(&self) -> bool {
         let mut n = self.valor;
         let mut suma = 0;
-        let expo: u16 = self.cantidad_digitos();
+        let expo: u64 = self.cantidad_digitos();
 
         while n > 0 {
             let digito = n % 10;
@@ -148,8 +148,8 @@ impl Numero {
 
 
     //2.- Insertar un digito en una posicion
-    fn insertar_digito(&self, digito: u64, posicion: u32) -> u64 {
-    let total_cifras = self.cantidad_cifras();
+    fn insertar_digito(&self, digito: u64, posicion: u64) -> u64 {
+    let total_cifras = self.cantidad_digitos();
 
     let mut divisor: u64 = 1;
 
@@ -246,7 +246,10 @@ fn main() {
             "6" => println!("  ¿Es Armstrong?    → {}", n.es_armstrong()),
             "7" => println!("  Cantidad de Digitos Pares es    → {}", n.cant_dig_pares()),
             "8" => println!("  La raiz gitital es    → {}", n.raiz_digital()),
-            "9" => println!("  Collatz            → {}", n.collatz()),
+            "9" => {
+                   let (pasos, maximo) = n.collatz();
+                    println!("  Collatz → pasos: {}, máximo: {}", pasos, maximo);
+            }
             "10" => {
                 println!("  Ingresa el dígito a insertar (0-9):");
                 match leer_numero() {
@@ -254,7 +257,7 @@ fn main() {
                         println!("  Ingresa la posición (1 = izquierda):");
                         match leer_numero() {
                             Some(posicion) => {
-                                let resultado = n.insertar_digito(digito, posicion as u32);
+                                let resultado = n.insertar_digito(digito, posicion);
                                 println!("  Insertar dígito {} en posición {}: → {}", digito, posicion, resultado);
                             }
                             None => println!("  Posición inválida."),
