@@ -126,26 +126,42 @@ impl Numero {
     //1.- La conjetura de Collatz: Si el número es par, divídelo entre 2; si es impar, multiplícalo por 3
     //y súmale 1. Repetir hasta llegar a 1. Implementar un método que cuente los pasos necesarios y otro que
     //encuentre el valor máximo alcanzado durante la secuencia.
+    
+    fn collatz(&self) -> (u64, u64) {
+    let mut n = self.valor;
+    let mut pasos: u64 = 0;
+    let mut maximo: u64 = 0;
 
-    //13 es impar = * 3 + 1 = 40
-    //40 es par = / 2 = 20
-    //20 es par = / 2 = 10
-    //10 es par = / 2 = 5
-    //5 es impar = * 3 + 1 = 16
-    //16 es par = / 2 = 8
-    //8 es par = / 2 = 4
-    //4 es par = / 2 = 2
-    //2 es par = / 2 = 1 TERMINA!
-
-    //2.- Insertar un digito en una posicion, ej:
-    // 361, quiero insertar el digito 2 en la 2da posiciom:
-    // 3261
-    //
-    //3261 Ordenar los digitos del numero
-    //1236
+      while n != 1 {
+        if n % 2 == 0 {
+            n = n / 2;
+        } else {
+            n = n * 3 + 1;
+        }
+        pasos += 1;
+        if n > maximo {
+            maximo = n;
+        }
+      }
+      (pasos,  maximo)
+    }
 
 
+    //2.- Insertar un digito en una posicion
+    fn insertar_digito(&self, digito: u64, posicion: u32) -> u64 {
+    let total_cifras = self.cantidad_cifras();
 
+    let mut divisor: u64 = 1;
+
+    for _ in 0..(total_cifras - posicion + 1) {  // ← +1 para que la posición empiece en 1
+        divisor = divisor * 10;
+    }
+
+    let parte_izquierda = self.valor / divisor;
+    let parte_derecha   = self.valor % divisor;
+
+    parte_izquierda * divisor * 10 + digito * divisor + parte_derecha
+}
 
 
 
@@ -190,6 +206,8 @@ fn mostrar_menu(n: &Numero) {
     println!("║  6. ¿Es Armstrong?               ║");
     println!("║  7. Cantidad Dig Par             ║");
     println!("║  8. Raiz Digital                 ║");
+    println!("║  9. Collatz                      ║");
+    println!("║  10. Insertar dígito             ║");
     println!("╠══════════════════════════════════╣");
     println!("║  0. Ingresar nuevo número        ║");
     println!("║  Q. Salir                        ║");
@@ -228,6 +246,24 @@ fn main() {
             "6" => println!("  ¿Es Armstrong?    → {}", n.es_armstrong()),
             "7" => println!("  Cantidad de Digitos Pares es    → {}", n.cant_dig_pares()),
             "8" => println!("  La raiz gitital es    → {}", n.raiz_digital()),
+            "9" => println!("  Collatz            → {}", n.collatz()),
+            "10" => {
+                println!("  Ingresa el dígito a insertar (0-9):");
+                match leer_numero() {
+                    Some(digito) if digito <= 9 => {
+                        println!("  Ingresa la posición (1 = izquierda):");
+                        match leer_numero() {
+                            Some(posicion) => {
+                                let resultado = n.insertar_digito(digito, posicion as u32);
+                                println!("  Insertar dígito {} en posición {}: → {}", digito, posicion, resultado);
+                            }
+                            None => println!("  Posición inválida."),
+                        }
+                    }
+                    Some(_) => println!("  El dígito debe estar entre 0 y 9."),
+                    None    => println!("  Dígito inválido."),
+                }
+            }
             "0" => {
                 println!("  Ingresa el nuevo número:");
                 match leer_numero() {
