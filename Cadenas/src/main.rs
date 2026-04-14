@@ -60,6 +60,20 @@ impl Cadena {
 
     /*fn es_palindromo(&self) -> bool {
     }*/
+
+// NUEVOS EJERCICIOS    
+    
+    /*fn reemplazar_pos_car(&self, pos, c) {
+    
+    }*/
+
+    /*fn reemplazar_car(&self, c, x) {
+    
+    }*/
+
+    /*fn cont_voc_cons(&self) -> u8 {
+    
+    }*/
     
     // limpia la cadena para poder ingresar una nueva
     fn limpiar(&mut self) {
