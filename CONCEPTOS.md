@@ -27,6 +27,7 @@ Accede a los recursos preparados por el docente:
 |---|---|---|
 | 🦀 **Introducción a Rust** | Historia, características, ownership, por qué aprender Rust | [hugonex.com/rust](https://hugonex.com/rust) |
 | 🧩 **POO en Rust** | `struct`, `impl`, `pub`, `trait` y composición con ejemplos | [hugonex.com/poorust](https://hugonex.com/poorust) |
+| 🧩 **Cadenas POO - Rust** | `struct`, `impl`, `pub`, `Cadenas` | [hugonex.com/cadenas](https://hugonex.com/cadenas) |
 | 📺 **Canal de YouTube** | Videos, tutoriales y clases del docente | [youtube.com/@hnexcode](https://www.youtube.com/@hnexcode) |
  
 ---
