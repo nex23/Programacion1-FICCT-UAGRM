@@ -64,15 +64,15 @@ impl Cadena {
 // NUEVOS EJERCICIOS    
     
     /*fn reemplazar_pos_car(&self, pos, c) {
-    
+       //Recibe una posición y un caracter. Se debe reemaplazar el caracter en esa posición por el nuevo caracter.
     }*/
 
     /*fn reemplazar_car(&self, c, x) {
-    
+       //Recibe 2 caracteres. El primero es uno que contiene la cadena, que debe ser reemplazdo por el otro caracter
     }*/
 
     /*fn cont_voc_cons(&self) -> u8 {
-    
+       //Contar la cantidad de vocales y consonantes que contiene la cadena.
     }*/
     
     // limpia la cadena para poder ingresar una nueva
