@@ -120,10 +120,13 @@ fn mostrar_menu(c: &Cadena) {
     println!("║  3. Longitud                     ║");
     println!("║  4. Obtener carácter (posición)  ║");
     println!("║  5. Cant Repetido carácter       ║");
-    println!("║  6. Char más repetido            ║");  // ← nuevo
-    println!("║  7. Convertir a mayúsculas       ║");  // ← nuevo
-    println!("║  8. Invertir cadena              ║");  // ← nuevo
-    println!("║  9. ¿Es palíndromo?              ║");  // ← nuevo
+    println!("║  6. Char más repetido            ║");
+    println!("║  7. Convertir a mayúsculas       ║");
+    println!("║  8. Invertir cadena              ║");
+    println!("║  9. ¿Es palíndromo?              ║");
+    println!("║  10. Reemplazar char (posición)  ║");
+    println!("║  11. Reemplazar char (por otro)  ║");
+    println!("║  12. Vocales y consonantes       ║");
     println!("╠══════════════════════════════════╣");
     println!("║  Q. Salir                        ║");
     println!("╚══════════════════════════════════╝");
@@ -216,8 +219,54 @@ fn main() {
                 }
             }
 
+            "10" => {
+                println!("  Ingresa la posición (1 = izquierda):");
+                match leer_numero() {
+                    Some(pos) if pos >= 1 && pos <= c.obt_longitud() => {
+                    println!("  Ingresa el nuevo carácter:");
+                    let entrada = leer_linea();
+                    match entrada.chars().next() {
+                        Some(nuevo) => {
+                            c.reemplazar_en_posicion(pos, nuevo);
+                            print!("  Cadena resultante: ");
+                            c.mostrar();
+                        }
+                        None => println!("  No ingresaste ningún carácter."),
+                    }
+                }
+                    Some(_) => println!("  Posición fuera de rango (1 a {}).", c.obt_longitud()),
+                    None    => println!("  Posición inválida."),
+                }
+            }
+
+            "11" => {
+                println!("  Ingresa el carácter a reemplazar:");
+                let entrada1 = leer_linea();
+                match entrada1.chars().next() {
+                    Some(viejo) => {
+                        println!("  Ingresa el carácter nuevo:");
+                        let entrada2 = leer_linea();
+                        match entrada2.chars().next() {
+                            Some(nuevo) => {
+                                c.reemplazar(viejo, nuevo);
+                                print!("  Cadena resultante: ");
+                                c.mostrar();
+                            }
+                            None => println!("  No ingresaste el carácter nuevo."),
+                        }
+                    }
+                    None => println!("  No ingresaste ningún carácter."),
+                }
+            }
+            
+            "12" => {
+                let (vocales, consonantes) = c.contar_vocales_consonantes();
+                println!("  Vocales:      {}", vocales);
+                println!("  Consonantes:  {}", consonantes);
+            }
+            
             "q" | "Q" => { println!("\n  Hasta luego.\n"); break; }
-            _          => println!("  Opción no válida."),
+                        _          => println!("  Opción no válida."),
+            }
         }
-    }
 }
