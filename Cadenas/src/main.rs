@@ -74,6 +74,21 @@ impl Cadena {
     /*fn cont_voc_cons(&self) -> u8 {
        //Contar la cantidad de vocales y consonantes que contiene la cadena.
     }*/
+
+    //MAS EJERCICIOS
+
+    /*fn eliminar_pos(& mut self, pos:usize) {
+        //Dada un posicion, eliminar el caracter en esa posicion, a travez de intercambio.
+        //"Hola como va" pos = 7 Result = "Hola cmo va" (longitud reduce)
+    }*/
+
+    /*fn obtener_subcadena(&self, inicio: usize, fin: usize) -> Cadena {
+
+        // Cadena::new()
+        // El usuario da 2 posiciones, 1 es donde inicia y la otra es donde finaliza la nueva cadena.
+        //"Hola como van todos" inicio = 2 fin = 8
+        //"ola com"
+    }*/
     
     // limpia la cadena para poder ingresar una nueva
     fn limpiar(&mut self) {
