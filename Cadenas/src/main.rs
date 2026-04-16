@@ -127,6 +127,8 @@ fn mostrar_menu(c: &Cadena) {
     println!("║  10. Reemplazar char (posición)  ║");
     println!("║  11. Reemplazar char (por otro)  ║");
     println!("║  12. Vocales y consonantes       ║");
+    println!("║  13. Extraer subcadena           ║");
+    println!("║  14. Eliminar carácter (posición)║");
     println!("╠══════════════════════════════════╣");
     println!("║  Q. Salir                        ║");
     println!("╚══════════════════════════════════╝");
@@ -263,6 +265,43 @@ fn main() {
                 let (vocales, consonantes) = c.contar_vocales_consonantes();
                 println!("  Vocales:      {}", vocales);
                 println!("  Consonantes:  {}", consonantes);
+            }
+
+            "13" => {
+                if c.obt_longitud() == 0 {
+                    println!(" La cadena está vacía.");
+                } else {
+                    println!(" Ingresa la posición de inicio (1-based):");
+                    if let Some(inicio) = leer_numero() {
+                        println!(" Ingresa la cantidad de caracteres a extraer:");
+                        if let Some(long) = leer_numero() {
+                            let sub = c.subcadena(inicio, long);
+                            print!(" Subcadena extraída: ");
+                            sub.mostrar();
+                        } else {
+                            println!(" Cantidad inválida.");
+                        }
+                    } else {
+                        println!(" Posición inválida.");
+                    }
+                }
+            }
+
+            "14" => {
+                if c.obt_longitud() == 0 {
+                    println!(" La cadena está vacía.");
+                } else {
+                    println!(" Ingresa la posición a eliminar (1-based):");
+                    match leer_numero() {
+                        Some(pos) if pos >= 1 && pos <= c.obt_longitud() => {
+                            c.eliminar_en_posicion(pos);
+                            print!(" Cadena resultante: ");
+                            c.mostrar();
+                        }
+                        Some(_) => println!(" Posición fuera de rango (1 a {}).", c.obt_longitud()),
+                        None => println!(" Posición inválida."),
+                    }
+                }
             }
             
             "q" | "Q" => { println!("\n  Hasta luego.\n"); break; }
