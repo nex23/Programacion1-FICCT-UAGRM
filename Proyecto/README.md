@@ -1,18 +1,57 @@
-PROYECTO FINAL - RUST:
+# 🚀 **Space Invaders - Proyecto Final Rust** 🚀
 
-Space Invaders - Juego
+Un clon clásico de **Space Invaders** implementado en **Rust** con gráficos en consola usando la crate `crossterm`.
 
-struct Jugador { vida: u32, posicion: Posicion, disparos: Vec (Arreglo)}
-struct Enemigo {tipo: TipoEnemigo, posicion: Posicion, activo: bool}
-struct Disparo {posicion: Posicion, direccion: Direccion}
-struct Juego {jugador: Jugador, enemigos: Vec(Enemigos), puntuacion: u32}
+## 🎮 **Estructuras del Juego**
 
-El juego debe ser sencillo:
-1.- Deben las naves enemigas moverse de derecha a izquierdau viceversa, y de arriba hacia abajo.
-2.- El jugador o la nave, debe igual moverse de izquierda a derecha o viceversa.
-3.- Se debe llevar control de la puntuacion.
-4.- debe tener vidas, al menos 3 vidas. Despues de 3 "muertes", termina el juego.
+```rust
+// 📍 Posición en la cuadrícula del juego
+struct Posicion {
+    x: u32,
+    y: u32,
+}
 
-OPCIONAL:
-5.- Si desean, el usuario puede recibir mas de un disparo antes de destruirse.
-6.- Puede tener muros de proteccion.
+// 👾 Tipos de enemigos
+#[derive(Clone, Copy)]
+enum TipoEnemigo {
+    Normal,
+    Rapido,
+    Fuerte,
+}
+
+// ➡️ Direcciones de movimiento
+#[derive(Clone, Copy)]
+enum Direccion {
+    Izquierda,
+    Derecha,
+    Abajo,
+}
+
+// 🎯 Jugador principal
+struct Jugador {
+    vida: u32,           // ❤️ 3 vidas iniciales
+    posicion: Posicion,
+    disparos: Vec<Disparo>,
+}
+
+// 👽 Enemigo individual
+struct Enemigo {
+    tipo: TipoEnemigo,
+    posicion: Posicion,
+    activo: bool,
+}
+
+// 💥 Disparo
+struct Disparo {
+    posicion: Posicion,
+    direccion: Direccion,
+}
+
+// 🕹️ Estado completo del juego
+struct Juego {
+    jugador: Jugador,
+    enemigos: Vec<Enemigo>,
+    puntuacion: u32,
+    vidas: u32,
+    game_over: bool,
+}
