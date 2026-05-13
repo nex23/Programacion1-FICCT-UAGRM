@@ -127,12 +127,48 @@ impl Vectores {
         }
     }
 
-    fn ceros_final(& mut self) {
-        //Mover todos los ceros, al final del vector
-        // 3 - 7 - 0 - 2 - 0 - 1
-        // 3 - 7 - 2 - 1 - 0 - 0
+    fn ceros_final(&mut self) {       
+        let dimencion_inicial = self.dimension;
+        self.elim_menor_e(1);
+
+        let diferencia = dimencion_inicial - self.dimension;
+
+        for _ in 0..diferencia {
+            self.addelemento(0);
+        }
     }
 
+    fn eliminar_repe(&mut self) {
+        let mut i = 0;
+        while i < self.dimension {
+            let num = self.elemento[i];
+            let mut repetido = false;
+            for j in (i+1)..self.dimension {
+                if self.elemento[i] == self.elemento[j] {
+                    repetido = true;
+                }
+            }
+            if repetido {
+                self.eliminar(num);
+            }else{
+                i += 1
+            }
+        }
+    }
+
+    fn elim_solo_rep(&mut self) {
+        for i in 0..self.dimension {
+            let num = self.elemento[i];
+            for j in (i+1)..self.dimension {
+                if num == self.elemento[j] {
+                    for k in j..(self.dimension - 1) {
+                        self.elemento[j] = self.elemento[k];
+                    }
+                    self.dimension -= 1
+                }
+            }
+        }
+    }
 }
 
 
