@@ -133,6 +133,18 @@ impl Vectores {
         // 3 - 7 - 2 - 1 - 0 - 0
     }
 
+    fn burbuja_sort(& mut self) {
+        for i in 0..self.dimension-2 {
+            for j in i+1..self.dimension-1 {
+                if self.elemento[i] > self.elemento[j] {
+                    let aux = self.elemento[i];
+                    self.elemento[i] = self.elemento[j];
+                    self.elemento[j] = aux;
+                }
+            }
+        }
+    }
+
     fn seleccion_sort(& mut self) {
         let mut i = 0;
         while i < self.dimension-1 {
