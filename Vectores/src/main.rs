@@ -169,6 +169,53 @@ impl Vectores {
             }
         }
     }
+    fn burbuja_sort(& mut self) {
+        for i in 0..self.dimension-2 {
+            for j in i+1..self.dimension-1 {
+                if self.elemento[i] > self.elemento[j] {
+                    let aux = self.elemento[i];
+                    self.elemento[i] = self.elemento[j];
+                    self.elemento[j] = aux;
+                }
+            }
+        }
+    }
+
+    fn seleccion_sort(& mut self) {
+        let mut i = 0;
+        while i < self.dimension-1 {
+            let mut min = i;
+            let mut j = i+1;
+            while j < self.dimension {
+                if self.elemento[j] < self.elemento[min] {
+                    min = j;
+                }
+                j += 1;
+            }
+            if min != i {
+            let aux = self.elemento[i];
+            self.elemento[i] = self.elemento[min];
+            self.elemento[min] = aux;
+            }
+            i += 1;
+        }        
+
+    }
+
+    fn insercion_sort(& mut self) {
+        for i in 1..self.dimension {
+            let min = self.elemento[i];
+            let mut j = i;
+            while j > 0 && self.elemento[j-1] > min {
+                self.elemento[j] = self.elemento[j-1];
+                j -= 1;
+            }
+            if j != i {
+                self.elemento[j] = min;
+            }
+        }
+    }
+
 }
 
 
