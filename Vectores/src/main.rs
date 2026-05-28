@@ -216,6 +216,118 @@ impl Vectores {
         }
     }
 
+    //MERGE SORT:
+    fn merge_sort(&mut self) {
+        if self.dimension <= 1 {
+            return;
+        }
+        self.merge_sort_div(0, self.dimension - 1);
+    }
+
+    fn merge_sort_div(&mut self, izq: usize, der: usize) {
+        if izq >= der {
+            return;  // caso base: un solo elemento
+        }
+
+        let mitad = (izq + der) / 2;
+
+        // dividir en dos mitades y ordenar cada una
+        self.merge_sort_div(izq, mitad);
+        self.merge_sort_div(mitad + 1, der);
+
+        // fusionar las dos mitades ya ordenadas
+        self.merge(izq, mitad, der);
+    }
+
+    fn merge(&mut self, izq: usize, mitad: usize, der: usize) {
+        // copias temporales de ambas mitades usando Vector auxiliar
+        let mut vec_izq  = Vector::new();
+        let mut vec_der  = Vector::new();
+
+        for i in izq..=mitad {
+            vec_izq.add_elemento(self.elemento[i]);
+        }
+        for i in (mitad + 1)..=der {
+            vec_der.add_elemento(self.elemento[i]);
+        }
+
+        // fusionar comparando elemento a elemento
+        let mut i: usize = 0;
+        let mut j: usize = 0;
+        let mut k: usize = izq;
+
+        while i < vec_izq.dimension && j < vec_der.dimension {
+            if vec_izq.elemento[i] <= vec_der.elemento[j] {
+                self.elemento[k] = vec_izq.elemento[i];
+                i += 1;
+            } else {
+                self.elemento[k] = vec_der.elemento[j];
+                j += 1;
+            }
+            k += 1;
+        }
+
+        // volcar el resto de la mitad que no se agotó
+        while i < vec_izq.dimension {
+            self.elemento[k] = vec_izq.elemento[i];
+            i += 1;
+            k += 1;
+        }
+        while j < vec_der.dimension {
+            self.elemento[k] = vec_der.elemento[j];
+            j += 1;
+            k += 1;
+        }
+    }
+
+    //QICK SORT:
+    fn quick_sort(&mut self) {
+    if self.dimension <= 1 {
+        return;
+    }
+        self.quick_sort_div(0, self.dimension - 1);
+    }
+
+    fn quick_sort_div(&mut self, izq: usize, der: usize) {
+        if izq >= der {
+            return;  // caso base
+        }
+    
+        let pos_pivote = self.particionar(izq, der);
+    
+        // ordenar la mitad izquierda (antes del pivote)
+        if pos_pivote > 0 {
+            self.quick_sort_div(izq, pos_pivote - 1);
+        }
+    
+        // ordenar la mitad derecha (después del pivote)
+        self.quick_sort_div(pos_pivote + 1, der);
+    }
+    
+    fn particionar(&mut self, izq: usize, der: usize) -> usize {
+        let pivote = self.elementos[der];  // usamos el último como pivote
+        let mut i = izq;                   // i apunta al lugar del próximo menor
+    
+        let mut j = izq;
+        while j < der {
+            if self.elementos[j] <= pivote {
+                // intercambiar elementos[j] con elementos[i]
+                let temp = self.elementos[i];
+                self.elementos[i] = self.elementos[j];
+                self.elementos[j] = temp;
+                i += 1;
+            }
+            j += 1;
+        }
+    
+        // colocar el pivote en su posición final
+        let temp = self.elementos[i];
+        self.elementos[i] = self.elementos[der];
+        self.elementos[der] = temp;
+    
+        i  // retorna la posición final del pivote
+    }
+
 }
 
 
