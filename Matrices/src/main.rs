@@ -37,6 +37,14 @@ impl Matriz {
         self.celdas[f][c] = valor;
     }
 
+    fn sumar(&self) -> u64 {
+        //Sumar todos los elementos de la matriz.
+    }
+
+    fn pares(&self) -> u64 {
+        //Devolver la cantidad de numeros pares que existen en la matriz.
+    }
+
     // ── Mostrar ───────────────────────────────────────────────────
 
     fn mostrar(&self) {
